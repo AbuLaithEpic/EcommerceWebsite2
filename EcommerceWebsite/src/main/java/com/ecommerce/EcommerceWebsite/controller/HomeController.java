@@ -30,4 +30,15 @@ public class HomeController {
     public String view_product(){
         return "view_product";
     }
+
+    @GetMapping("/forgot_password")
+    public String forgot_password(){
+        return "forgot_password";
+    }
+
+    @GetMapping("/reset_password")
+    public String reset_password(){
+        return "reset_password";
+    }
+
 }
