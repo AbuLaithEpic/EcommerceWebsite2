@@ -41,4 +41,9 @@ public class HomeController {
         return "reset_password";
     }
 
+//    @GetMapping("/cart")
+//    public String cart(){
+//        return "cart";
+//    }
+
 }
