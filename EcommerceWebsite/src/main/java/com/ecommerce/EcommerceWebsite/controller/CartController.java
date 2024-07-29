@@ -1,36 +1,48 @@
 package com.ecommerce.EcommerceWebsite.controller;
 
+import com.ecommerce.EcommerceWebsite.model.CartItem;
 import com.ecommerce.EcommerceWebsite.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
     private CartService cartService;
 
-    @GetMapping("/cart")
+//    @GetMapping
+//    public String showCart(Model model) {
+//        model.addAttribute("cartItems", cartService.getCartItems());
+//        model.addAttribute("totalPrice", cartService.getTotalPrice());
+//        return "cart";
+//    }
+
+    @GetMapping
     public String viewCart(Model model) {
         model.addAttribute("cartItems", cartService.getCartItems());
         model.addAttribute("totalPrice", cartService.getTotalPrice());
         return "cart";
     }
 
-    @PostMapping("/update_cart")
-    public String updateCart(@RequestParam("productId") Long productId,
-                             @RequestParam("quantity") int quantity) {
-        cartService.updateCartItem(productId, quantity);
+    @PostMapping("/add")
+    public String addCartItem(@RequestParam Long productId, @RequestParam int quantity) {
+        cartService.addCartItem(productId, quantity);
         return "redirect:/cart";
     }
 
-    @GetMapping("/remove_from_cart")
-    public String removeFromCart(@RequestParam("productId") Long productId) {
-        cartService.removeCartItem(productId);
+    @PostMapping("/remove/{id}")
+    public String removeCartItem(@PathVariable Long id) {
+        cartService.removeCartItem(id);
+        return "redirect:/cart";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateCartItem(@PathVariable Long id, @RequestParam int quantity) {
+        cartService.updateCartItem(id, quantity);
         return "redirect:/cart";
     }
 }

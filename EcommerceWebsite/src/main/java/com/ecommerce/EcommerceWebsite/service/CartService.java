@@ -17,6 +17,13 @@ public class CartService {
         return cartRepository.findAll();
     }
 
+    public void addCartItem(Long productId, int quantity) {
+        CartItem cartItem = new CartItem();
+        cartItem.setProductId(productId);
+        cartItem.setQuantity(quantity);
+        cartRepository.save(cartItem);
+    }
+
     public void updateCartItem(Long productId, int quantity) {
         CartItem cartItem = cartRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException("Invalid product ID"));
         cartItem.setQuantity(quantity);

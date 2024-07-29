@@ -1,21 +1,21 @@
 package com.ecommerce.EcommerceWebsite.model;
 
+//import javax.persistence.*;
 import jakarta.persistence.*;
 
 @Entity
-public class CartItem {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long productId; // Added field for productId
+    private Long productId;
     private String productName;
-    private double price;
     private int quantity;
+    private double price;
 
-    // Getters and Setters
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -40,19 +40,19 @@ public class CartItem {
         this.productName = productName;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
