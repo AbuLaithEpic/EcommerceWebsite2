@@ -16,8 +16,7 @@ public class Product {
 
     @Column(name = "product_desc")
     private String productDescription;
-
-    // Getters and Setters
+    
     public Long getId() {
         return id;
     }
