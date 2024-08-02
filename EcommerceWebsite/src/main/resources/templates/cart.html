@@ -25,6 +25,19 @@
             border-color: #3d2b1f;
             color: white; /* Text color */
         }
+        <style>
+    .btn-chocolate1 {
+        background-color: #8B4513; /* Chocolate color */
+        border: none;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-chocolate1:hover {
+        background-color: green;
+    }
+    </style>
+
     </style>
 </head>
 
@@ -139,7 +152,7 @@
                 </tr>
             </table>
             <div class="d-flex justify-content-end py-3">
-                <button class="btn btn-chocolate"><a class="text-decoration-none text-white" th:href="@{/checkout}">Proceed to Checkout</a></button>
+                <button class="btn btn-chocolate1"><a class="text-decoration-none text-white" th:href="@{/checkout}">Proceed to Checkout</a></button>
             </div>
 <!--            <div class="d-flex justify-content-end py-3">-->
 <!--                <button class="btn btn-success"><a class="text-decoration-none text-white" th:href="@{/my_orders}">Your Order</a></button>-->

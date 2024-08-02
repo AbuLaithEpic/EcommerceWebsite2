@@ -29,8 +29,22 @@ body {
     margin-top: auto;
 }
 
+.btn-chocolate1 {
+        background-color: #8B4513; /* Chocolate color */
+        border: none;
+        color: white;
+            transition: background-color 0.3s ease;
+    }
+
+    .btn-chocolate:hover {
+        background-color: green;
+    }
+    }
 
 .btn-chocolate {
     background-color: #3d2b1f; /* Chocolate color */
     border-color: #3
+
+    }
+
 
