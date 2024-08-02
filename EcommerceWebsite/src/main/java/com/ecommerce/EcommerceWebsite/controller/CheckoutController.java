@@ -14,26 +14,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CheckoutController {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    // @Autowired
+    // private UserDetailsService userDetailsService;
 
-    @GetMapping("/checkout")
-    public String displayCheckoutPage(Model model, Principal principal) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("userdetail", userDetails);
+    // @GetMapping("/checkout")
+    // public String displayCheckoutPage(Model model, Principal principal) {
+    //     UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+    //     model.addAttribute("userdetail", userDetails);
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || !authentication.isAuthenticated()) {
-            throw new UsernameNotFoundException("User not authenticated");
-        }
+    //     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    //     if (authentication == null || !authentication.isAuthenticated()) {
+    //         throw new UsernameNotFoundException("User not authenticated");
+    //     }
 
-        // CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
-        // Long userId = customUserDetails.getId();
+    //     // CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+    //     // Long userId = customUserDetails.getId();
 
-        // List<Cart> carts = cartService.getCartByUserId(userId);
-        // model.addAttribute("carts", carts);
-        return "order";
-    }
+    //     // List<Cart> carts = cartService.getCartByUserId(userId);
+    //     // model.addAttribute("carts", carts);
+    //     return "order";
+    // }
     
 
 }
